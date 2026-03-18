@@ -1,0 +1,302 @@
+<div class="container">
+
+  <h1>🏠 Home Budget Planner</h1>
+
+  <div class="quote">
+    “Se non gestisci tu i tuoi soldi… saranno i tuoi soldi a gestire te.”
+  </div>
+
+  <!-- DATI FAMIGLIA -->
+  <div class="box percentuali">
+    <div class="row">
+      <span>Dati famiglia</span>
+    </div>
+
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="text" id="cognome" placeholder="Cognome">
+
+    <select id="mese">
+      <option value="">Seleziona mese</option>
+      <option>Gennaio</option>
+      <option>Febbraio</option>
+      <option>Marzo</option>
+      <option>Aprile</option>
+      <option>Maggio</option>
+      <option>Giugno</option>
+      <option>Luglio</option>
+      <option>Agosto</option>
+      <option>Settembre</option>
+      <option>Ottobre</option>
+      <option>Novembre</option>
+      <option>Dicembre</option>
+    </select>
+
+    <input type="number" id="anno" placeholder="Anno (es. 2026)">
+  </div>
+
+  <label>💰 Entrata mensile (€)</label>
+  <input type="number" id="income" placeholder="Es. 2000">
+
+  <!-- PERCENTUALI -->
+  <div class="box percentuali">
+    <div class="row">
+      <span>Percentuali</span>
+    </div>
+
+    <label class="field-label" for="percNecessita">Necessità %</label>
+    <input type="number" id="percNecessita" value="60">
+
+    <label class="field-label" for="percRisparmio">Risparmio %</label>
+    <input type="number" id="percRisparmio" value="10">
+
+    <label class="field-label" for="percCrescita">Crescita %</label>
+    <input type="number" id="percCrescita" value="5">
+
+    <label class="field-label" for="percSvago">Svago %</label>
+    <input type="number" id="percSvago" value="13">
+
+    <label class="field-label" for="percGenerosita">Generosità % totale</label>
+    <input type="number" id="percGenerosita" value="12">
+
+    <div class="percent-summary">
+      <div class="sub-row black-row">
+        <span>Distribuito</span>
+        <span id="percentUsed">0%</span>
+      </div>
+
+      <div class="sub-row black-row">
+        <span>Mancano</span>
+        <span id="percentRemaining">100%</span>
+      </div>
+
+      <div class="progress-track">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+
+      <div id="percentMessage" class="percent-message">
+        Distribuisci le percentuali fino a 100%.
+      </div>
+    </div>
+  </div>
+
+  <!-- NECESSITÀ -->
+  <div class="box necessita">
+    <div class="row">
+      <span>Necessità</span>
+      <span id="necessita">0,00 €</span>
+    </div>
+
+    <input type="number" id="spesaNecessita" placeholder="Spesa reale mensile">
+
+    <div class="sub-row">
+      <span>Speso</span>
+      <span id="totNecessita">0,00 €</span>
+    </div>
+
+    <div class="sub-row">
+      <span>Differenza</span>
+      <span id="restoNecessita">0,00 €</span>
+    </div>
+
+    <div class="section-title">Spese annuali da accantonare (calcolatrice)</div>
+
+    <div id="annualList">
+      <div class="annual-item">
+        <input type="text" class="annual-name" value="Bollo" placeholder="Nome spesa">
+        <input type="number" class="annual-amount" placeholder="Importo annuale">
+      </div>
+
+      <div class="annual-item">
+        <input type="text" class="annual-name" value="Assicurazione" placeholder="Nome spesa">
+        <input type="number" class="annual-amount" placeholder="Importo annuale">
+      </div>
+
+      <div class="annual-item">
+        <input type="text" class="annual-name" value="Tari" placeholder="Nome spesa">
+        <input type="number" class="annual-amount" placeholder="Importo annuale">
+      </div>
+    </div>
+
+    <button id="addAnnualBtn" type="button">+ Aggiungi spesa annuale</button>
+
+    <div class="sub-row">
+      <span>Totale annuale</span>
+      <span id="totAnnuale">0,00 €</span>
+    </div>
+
+    <div class="sub-row">
+      <span>Da mettere da parte al mese</span>
+      <span id="quotaMensile">0,00 €</span>
+    </div>
+  </div>
+
+  <!-- RISPARMIO -->
+  <div class="box risparmio">
+    <div class="row">
+      <span>Risparmio</span>
+      <span id="risparmio">0,00 €</span>
+    </div>
+
+    <input type="number" id="spesaRisparmio" placeholder="Quanto hai accantonato">
+
+    <div class="sub-row">
+      <span>Accantonato</span>
+      <span id="totRisparmio">0,00 €</span>
+    </div>
+
+    <div class="sub-row">
+      <span>Risparmio extra</span>
+      <span id="restoRisparmio">0,00 €</span>
+    </div>
+  </div>
+
+  <!-- CRESCITA -->
+  <div class="box crescita">
+    <div class="row">
+      <span>Crescita</span>
+      <span id="crescita">0,00 €</span>
+    </div>
+
+    <input type="number" id="spesaCrescita" placeholder="Spesa reale">
+
+    <div class="sub-row">
+      <span>Speso</span>
+      <span id="totCrescita">0,00 €</span>
+    </div>
+
+    <div class="sub-row">
+      <span>Differenza</span>
+      <span id="restoCrescita">0,00 €</span>
+    </div>
+  </div>
+
+  <!-- SVAGO -->
+  <div class="box svago">
+    <div class="row">
+      <span>Svago</span>
+      <span id="svago">0,00 €</span>
+    </div>
+
+    <input type="number" id="spesaSvago" placeholder="Spesa reale">
+
+    <div class="sub-row">
+      <span>Speso</span>
+      <span id="totSvago">0,00 €</span>
+    </div>
+
+    <div class="sub-row">
+      <span>Differenza</span>
+      <span id="restoSvago">0,00 €</span>
+    </div>
+  </div>
+
+  <!-- GENEROSITÀ -->
+  <div class="box generosita">
+    <div class="row">
+      <span>Generosità</span>
+      <span id="generosita">0,00 €</span>
+    </div>
+
+    <div class="sub-row">
+      <span id="decimaLabel">✝️ Decima (fissa 10%)</span>
+      <span id="decima">0,00 €</span>
+    </div>
+
+    <div class="sub-row">
+      <span id="offertaLabel">❤️ Offerta (ideale 2%)</span>
+      <span id="offerte">0,00 €</span>
+    </div>
+
+    <input type="number" id="spesaDecima" placeholder="Decima reale">
+    <input type="number" id="spesaOfferte" placeholder="Offerte / Donazioni">
+
+    <div class="sub-row">
+      <span>Totale dato</span>
+      <span id="totGenerosita">0,00 €</span>
+    </div>
+
+    <div class="sub-row">
+      <span>Generosità extra</span>
+      <span id="restoGenerosita">0,00 €</span>
+    </div>
+  </div>
+
+  <!-- RIEPILOGO -->
+  <div class="box riepilogo">
+    <div class="row">
+      <span>Entrata</span>
+      <span id="totaleEntrata">0,00 €</span>
+    </div>
+
+    <div class="sub-row">
+      <span>Totale inserito</span>
+      <span id="totaleInserito">0,00 €</span>
+    </div>
+
+    <div class="sub-row">
+      <span>Soldi ancora da inserire</span>
+      <span id="nonAssegnato">0,00 €</span>
+    </div>
+  </div>
+
+  <!-- SEMAFORO -->
+  <div id="statusBox" class="status-box status-neutral">
+    <span id="statusEmoji">⚪</span>
+    <span id="statusText">Stato: Inserisci i dati</span>
+  </div>
+
+  <!-- ARCHIVIO MESI -->
+  <div class="box percentuali">
+    <div class="row">
+      <span>Archivio mesi</span>
+    </div>
+
+    <button id="saveBtn" type="button">💾 Salva mese</button>
+
+    <select id="savedMonths">
+      <option value="">Seleziona mese salvato</option>
+    </select>
+
+    <button id="loadBtn" type="button">📂 Carica mese</button>
+    <button id="resetBtn" type="button">🧹 Nuovo mese</button>
+  </div>
+
+  <!-- STATISTICHE -->
+  <div class="box percentuali">
+    <div class="row">
+      <span>Statistiche</span>
+    </div>
+
+    <div class="chart-wrapper">
+      <canvas id="chart"></canvas>
+    </div>
+
+    <div class="sub-row black-row">
+      <span>Risparmio medio</span>
+      <span id="mediaRisparmio">0,00 €</span>
+    </div>
+
+    <div class="sub-row black-row">
+      <span>Spese medie necessità</span>
+      <span id="mediaSpese">0,00 €</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="verse">
+      <strong>Proverbi 27:23</strong>
+      <em>“Abbi cura di conoscere bene lo stato delle tue pecore, e prenditi cura delle tue greggi.”</em>
+    </div>
+
+    <div class="footer-text">
+      “Dio provvede… ma tu devi amministrare.”
+    </div>
+
+    <div class="footer-sign">
+      Home Budget Planner – Progetto Casa in Ordine<br>
+      A cura di Davide & Veronica Cascio
+    </div>
+  </div>
+
+</div>
